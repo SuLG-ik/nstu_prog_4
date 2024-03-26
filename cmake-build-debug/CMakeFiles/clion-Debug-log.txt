@@ -1,0 +1,4 @@
+"/Users/volodya/Applications/CLion Nova.app/Contents/bin/cmake/mac/aarch64/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/volodya/Applications/CLion Nova.app/Contents/bin/ninja/mac/aarch64/ninja" -G Ninja -S /Users/volodya/Desktop/шарага/прога/кодики/практика4 -B /Users/volodya/Desktop/шарага/прога/кодики/практика4/cmake-build-debug
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/volodya/Desktop/шарага/прога/кодики/практика4/cmake-build-debug
