@@ -41,4 +41,5 @@ void DeleteAll(Queue **head) {
         q = (*head)->start->next;
         free(*head);
     }
+    (*head) = NULL;
 }
