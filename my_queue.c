@@ -6,48 +6,39 @@
 
 #include <stdlib.h>
 
-void enqueue(Laptop* value, Item** head)
-{
-    Item* newItem = malloc(sizeof(Item));
+void enqueue(Laptop *value, Queue **head) {
+    Item *newItem = malloc(sizeof(Item));
     newItem->value = value;
-    if (*head == NULL)
-    {
+    if (*head == NULL) {
         newItem->next = newItem->prev = NULL;
-        (*head) = newItem;
+        (*head) = malloc(sizeof(Queue));
+        (*head)->start = newItem;
+        (*head)->end = newItem;
         return;
     }
-    (*head)->prev = newItem;
-    newItem->next = (*head);
+    (*head)->start->prev = newItem;
+    newItem->next = (*head)->start;
     newItem->prev = NULL;
-    (*head) = newItem;
+    (*head)->start = newItem;
 }
 
-Laptop* dequeue(Item** head)
-{
+Laptop *dequeue(Queue **head) {
     if (*head == NULL)
         return NULL;
-    Item* q = *head;
-    while (1)
-    {
-        if (q->next == NULL)
-        {
-            Laptop* laptop = q->value;
-            if (q->prev != NULL)
-                q->prev->next = NULL;
-            free(q);
-            return laptop;
-        }
-        q = (q)->next;
-    }
+    Item *item = (*head)->end;
+    item->prev->next = NULL;
+    (*head)->end = item->prev;
+    Laptop *laptop = item->value;
+    free(item);
+    return laptop;
 }
 
-void DeleteAll(Item** head)
-{
-    Item* q = *head;
-    while (q != NULL)
-    {
-        (*head) = q;
-        q = (*head)->next;
+void DeleteAll(Queue **head) {
+    Item *q = (*head)->start;
+    (*head)->end = NULL;
+    while (q != NULL) {
+        (*head)->start = q;
+        q = (*head)->start->next;
         free(*head);
     }
 }

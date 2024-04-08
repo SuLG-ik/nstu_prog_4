@@ -4,19 +4,18 @@
 
 #ifndef MY_LIST_H
 #define MY_LIST_H
-#include "Laptop.h"
 
-typedef struct Item {
-    Laptop* value;
-    struct Item* next;
-    struct Item* prev;
-} Item;
+#include "item.h"
 
-void enqueue(Laptop* value, Item** head);
+typedef struct Queue {
+    Item *start, *end;
+} Queue;
 
-Laptop* dequeue(Item** head);
+void enqueue(Laptop *value, Queue **head);
 
-void DeleteAll(Item** head);
+Laptop *dequeue(Queue **head);
+
+void DeleteAll(Queue **head);
 
 
 #endif //MY_LIST_H

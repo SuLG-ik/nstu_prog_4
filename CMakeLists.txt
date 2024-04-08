@@ -7,4 +7,6 @@ add_executable(3 main.c
         Laptop.c
         Laptop.h
         my_queue.c
-        my_queue.h)
+        my_queue.h
+        item.h
+)

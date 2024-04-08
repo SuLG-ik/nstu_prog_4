@@ -3,17 +3,14 @@
 
 #include "my_queue.h"
 
-
-void dequeue_with_print(Item** head)
-{
-    Laptop* laptop = dequeue(head);
+void dequeue_with_print(Queue **head) {
+    Laptop *laptop = dequeue(head);
     print_laptop(*laptop);
     free(laptop);
 }
 
-int main()
-{
-    Item* head = NULL;
+int main() {
+    Queue *head = NULL;
     enqueue(Init("Asus", "Intel", 0), &head);
     enqueue(Init("Aeer", "Intel", 0), &head);
     enqueue(Init("Lenovo", "AMD", 1), &head);
